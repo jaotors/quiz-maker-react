@@ -1,9 +1,10 @@
-const BASE_URL = process.env.API_URL || 'http://localhost:4000'
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+const API_TOKEN = import.meta.env.VITE_API_TOKEN || ''
 
 async function fetchData(url, options = { method: 'GET' }) {
   try {
     let headers = {
-      Authorization: `Bearer ${process.env.API_TOKEN || ''}`,
+      Authorization: `Bearer ${API_TOKEN}`,
       'Content-Type': 'application/json',
       ...options.headers,
     }
